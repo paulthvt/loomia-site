@@ -1,0 +1,17 @@
+{
+  "name": "loomia-site",
+  "private": true,
+  "description": "getloomia.app, the Loomia marketing site",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test 'test/*.test.mjs'",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.4.4"
+  }
+}

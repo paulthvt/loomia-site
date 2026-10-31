@@ -1,0 +1,38 @@
+---
+// "l", the mark in place of the first "o", then "omia": the Figma
+// Logo/Wordmark, sized by the font-size it sits in. Spacing from the Figma
+// component at 100px type (lib/core/ui/loomia_mark.dart: gap, overshoot).
+import Mark from './Mark.astro';
+import { href, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<a class="wordmark" href={href(lang, '/')} aria-label={t(lang).home}>
+  <span aria-hidden="true">l<Mark class="wordmark-mark" />omia</span>
+</a>
+
+<style>
+  .wordmark {
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .wordmark:hover {
+    text-decoration: none;
+  }
+  /* The svg is Mark.astro's: scoped styles don't reach into it. */
+  .wordmark :global(.wordmark-mark) {
+    display: inline-block;
+    width: 0.674em;
+    height: 0.744em;
+    margin: 0 0.046em 0 -0.01em;
+    /* The ring's bottom is the box's bottom; it overshoots the baseline. */
+    vertical-align: -0.016em;
+  }
+</style>

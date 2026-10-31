@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- The app icon tile (tool/brand/icons.sh in paulthvt/loomia): change together. -->
+  <rect width="1024" height="1024" rx="229" fill="#E8964A"/>
+  <g transform="translate(512 512) scale(7.7096) translate(5.1847 8.6905)" fill="white">
+    <circle r="22" fill="none" stroke="white" stroke-width="13"/>
+    <circle cx="-35.119" cy="-16.376" r="3.75"/>
+    <circle cx="-18.046" cy="-35.418" r="4.75"/>
+    <circle cx="7.076" cy="-40.131" r="5.75"/>
+  </g>
+</svg>

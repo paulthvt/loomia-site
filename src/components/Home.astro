@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from './Shot.astro';
+import { APP_URL, homeStrings, href, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = homeStrings(lang);
+---
+
+<Base title={s.title} description={s.description} path={href(lang, '/')}>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>{s.heroTitle}</h1>
+      <p>{s.heroText}</p>
+      <a class="button" href={APP_URL}>{t(lang).openApp}</a>
+    </div>
+    <Shot name="today" alt={s.heroAlt} lang={lang} eager />
+  </section>
+
+  {
+    s.features.map((f, i) => (
+      <section class:list={['feature', { 'feature-flip': i % 2 === 1 }]}>
+        <div class="feature-inner">
+          <div class="feature-text">
+            <p class="eyebrow">{f.eyebrow}</p>
+            <h2>{f.title}</h2>
+            <p>{f.text}</p>
+          </div>
+          <Shot name={f.shot} alt={f.alt} lang={lang} />
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="closing">
+    <h2>{s.closing}</h2>
+    <a class="button" href={APP_URL}>{t(lang).openApp}</a>
+    <p class="soon">{s.soon}</p>
+  </section>
+</Base>
+
+<style>
+  .hero,
+  .feature-inner,
+  .closing {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: center;
+    padding-block: 64px var(--section-gap);
+  }
+  .hero h1 {
+    font-size: var(--hero);
+    margin: 0 0 20px;
+  }
+  .hero-text p {
+    font-size: 19px;
+    max-width: 34em;
+    margin: 0 0 32px;
+  }
+
+  .feature {
+    background: var(--surface-sunken);
+    padding-block: var(--section-gap);
+  }
+  .feature + .feature {
+    border-top: 1px solid var(--border-subtle);
+  }
+  .feature-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .feature-text {
+    max-width: var(--beside);
+  }
+  /* Grid items default to min-width: auto and would push a long title out. */
+  .hero > *,
+  .feature-inner > * {
+    min-width: 0;
+  }
+  .feature h2 {
+    font-size: var(--section-title);
+    margin: 0 0 12px;
+  }
+  .feature-text p:last-child {
+    margin: 0;
+    font-size: 18px;
+  }
+  .eyebrow {
+    margin: 0 0 8px;
+    color: var(--primary-text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .closing {
+    text-align: center;
+    padding-block: var(--section-gap);
+  }
+  .closing h2 {
+    font-size: var(--section-title);
+    margin: 0 0 28px;
+  }
+  .soon {
+    margin: 20px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  /* Side by side from the app's tablet width; text before the screenshot below it. */
+  @media (min-width: 600px) {
+    .hero,
+    .feature-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature-flip .feature-text {
+      order: 2;
+    }
+  }
+</style>

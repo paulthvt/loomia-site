@@ -1,0 +1,46 @@
+---
+// An app screenshot in a thin phone outline, light or dark with the system.
+// Files: public/shots/<name>-light.webp and -dark.webp (English app), and
+// the same under public/shots/fr/ (French app), 786×1704.
+import type { Lang } from '../i18n';
+
+interface Props {
+  name: string;
+  alt: string;
+  lang: Lang;
+  eager?: boolean;
+}
+const { name, alt, lang, eager = false } = Astro.props;
+const base = lang === 'fr' ? `/shots/fr/${name}` : `/shots/${name}`;
+---
+
+<picture class="shot">
+  <source srcset={`${base}-dark.webp`} media="(prefers-color-scheme: dark)" />
+  <img
+    src={`${base}-light.webp`}
+    alt={alt}
+    width="393"
+    height="852"
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    decoding="async"
+  />
+</picture>
+
+<style>
+  .shot {
+    display: block;
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 6px solid var(--surface-default);
+    outline: 1px solid var(--border-strong);
+    border-radius: 36px;
+    box-shadow: var(--shot-shadow);
+    background: var(--surface-canvas);
+  }
+</style>

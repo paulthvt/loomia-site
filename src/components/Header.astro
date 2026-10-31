@@ -1,0 +1,52 @@
+---
+import Wordmark from './Wordmark.astro';
+import { altPath, APP_URL, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const s = t(lang);
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <Wordmark lang={lang} />
+    <nav class="site-header-nav">
+      <a
+        class="header-lang"
+        href={altPath(path)}
+        hreflang={lang === 'en' ? 'fr' : 'en'}
+        lang={lang === 'en' ? 'fr' : 'en'}
+        data-lang-switch>{s.otherLanguage}</a
+      >
+      <a class="button button-small" href={APP_URL}>{s.openApp}</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .site-header-inner {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding: 16px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 24px;
+  }
+  .site-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 15px;
+  }
+  .header-lang {
+    font-weight: 600;
+  }
+</style>

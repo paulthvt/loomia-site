@@ -1,0 +1,48 @@
+---
+import { href, t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = t(lang);
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <nav class="site-footer-nav">
+      <a href={href(lang, '/privacy')}>{s.privacy}</a>
+      <a href={href(lang, '/support')}>{s.support}</a>
+      <a href={href(lang, '/legal')}>{s.legal}</a>
+    </nav>
+    <p class="site-footer-copy">© 2026 Loomia</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border-subtle);
+    background: var(--surface-sunken);
+  }
+  .site-footer-inner {
+    max-width: var(--content);
+    margin: 0 auto;
+    padding: 32px var(--gutter);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    font-size: 15px;
+  }
+  .site-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    font-weight: 600;
+  }
+  .site-footer-copy {
+    margin: 0;
+    color: var(--text-muted);
+  }
+</style>

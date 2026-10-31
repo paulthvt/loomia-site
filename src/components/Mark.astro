@@ -1,0 +1,26 @@
+---
+// The Loomia mark (Figma Brand page, E5b): a ring the size of the Bold "o" and
+// three dots growing towards the top. Same geometry as the app's
+// tool/brand/icons.sh `mark()` and lib/core/ui/loomia_mark.dart: change them
+// together. Units are the mark's own, at 100px type; the viewBox is its
+// bounding box, centred on the origin.
+interface Props {
+  class?: string;
+  fill?: string;
+}
+const { class: className, fill = 'var(--brand)' } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="-33.6845 -37.1905 67.369 74.381"
+  aria-hidden="true"
+  focusable="false"
+>
+  <g transform="translate(5.1847 8.6905)" fill={fill}>
+    <circle r="22" fill="none" stroke={fill} stroke-width="13"></circle>
+    <circle cx="-35.119" cy="-16.376" r="3.75"></circle>
+    <circle cx="-18.046" cy="-35.418" r="4.75"></circle>
+    <circle cx="7.076" cy="-40.131" r="5.75"></circle>
+  </g>
+</svg>

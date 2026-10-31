@@ -1,0 +1,45 @@
+---
+// Every page: html lang, title and description, canonical and hreflang, the
+// header and the footer. `path` is the page's own path, without the site.
+import '../styles/site.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { altPath, langOf } from '../i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+}
+const { title, description, path } = Astro.props;
+const lang = langOf(path);
+const site = 'https://getloomia.app';
+const [en, fr] = lang === 'en' ? [path, altPath(path)] : [altPath(path), path];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={`${site}${path}`} />
+    <link rel="alternate" hreflang="en" href={`${site}${en}`} />
+    <link rel="alternate" hreflang="fr" href={`${site}${fr}`} />
+    <link rel="alternate" hreflang="x-default" href={`${site}${en}`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/PlusJakartaSans.ttf" as="font" type="font/ttf" crossorigin />
+    <slot name="head" />
+  </head>
+  <body>
+    <Header lang={lang} path={path} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

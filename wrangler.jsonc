@@ -1,0 +1,15 @@
+// getloomia.app: a Worker with static assets only, no code. Deployed from
+// GitHub Actions on every push to main (.github/workflows/site.yaml).
+{
+  "name": "loomia-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "dist",
+    // Unknown paths get dist/404.html with a 404 status.
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": false,
+  "preview_urls": false,
+  // This list replaces every domain on the Worker.
+  "routes": [{ "pattern": "getloomia.app", "custom_domain": true }]
+}

@@ -63,6 +63,23 @@ test('French uses tu', () => {
   }
 });
 
+test('every screenshot has a dark version and alt text', () => {
+  for (const path of built()) {
+    for (const picture of html(path).match(/<picture[\s\S]*?<\/picture>/g) ?? []) {
+      assert.match(picture, /<source[^>]*media="\(prefers-color-scheme: dark\)"/, path);
+      assert.match(picture, /<img[^>]* alt="[^"]+"/, path);
+    }
+  }
+});
+
+test('the app link is everywhere', () => {
+  for (const path of built()) assert.ok(html(path).includes('href="https://app.getloomia.app"'), path);
+});
+
+test('the 404 page exists', () => {
+  assert.ok(existsSync('dist/404.html'));
+});
+
 test('altPath swaps languages and keeps the page', () => {
   assert.equal(altPath('/'), '/fr');
   assert.equal(altPath('/fr'), '/');

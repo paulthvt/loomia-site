@@ -1,0 +1,49 @@
+---
+// Served by Cloudflare for any unknown path, in both languages at once: the
+// path doesn't say which one the reader wanted.
+import '../styles/site.css';
+import Wordmark from '../components/Wordmark.astro';
+import { APP_URL } from '../i18n';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found · Loomia</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="not-found">
+      <p class="not-found-logo"><Wordmark lang="en" /></p>
+      <h1>This page doesn't exist.</h1>
+      <p><a href="/">Go to the home page</a> or <a href={APP_URL}>open the app</a>.</p>
+      <div lang="fr">
+        <h2>Cette page n’existe pas.</h2>
+        <p><a href="/fr">Va à l’accueil</a> ou <a href={APP_URL}>ouvre l’app</a>.</p>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .not-found {
+    max-width: var(--reading);
+    margin: 0 auto;
+    padding: 96px var(--gutter);
+  }
+  .not-found-logo {
+    font-size: 32px;
+    margin: 0 0 48px;
+  }
+  .not-found h1 {
+    font-size: 32px;
+    margin: 0 0 12px;
+  }
+  .not-found h2 {
+    font-size: 22px;
+    margin: 40px 0 8px;
+  }
+</style>

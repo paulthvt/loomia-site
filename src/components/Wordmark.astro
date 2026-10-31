@@ -26,7 +26,8 @@ const { lang } = Astro.props;
   .wordmark:hover {
     text-decoration: none;
   }
-  .wordmark-mark {
+  /* The svg is Mark.astro's: scoped styles don't reach into it. */
+  .wordmark :global(.wordmark-mark) {
     display: inline-block;
     width: 0.674em;
     height: 0.744em;

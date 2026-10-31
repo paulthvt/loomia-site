@@ -80,6 +80,31 @@ test('the 404 page exists', () => {
   assert.ok(existsSync('dist/404.html'));
 });
 
+test('every page has a title, a description and Open Graph', () => {
+  const titles = new Set();
+  for (const path of built()) {
+    const page = html(path);
+    const title = page.match(/<title>([^<]+)<\/title>/)?.[1];
+    assert.ok(title, `${path} title`);
+    titles.add(title);
+    assert.match(page, /<meta name="description" content="[^"]+"/, path);
+    assert.match(page, /<meta property="og:title" content="[^"]+"/, path);
+    assert.match(page, /<meta property="og:description" content="[^"]+"/, path);
+    assert.ok(page.includes(`<meta property="og:image" content="${SITE}/og.png"`), path);
+    assert.ok(page.includes(`<meta property="og:url" content="${SITE}${path}"`), path);
+    const locale = lang(path) === 'fr' ? 'fr_FR' : 'en_US';
+    assert.ok(page.includes(`<meta property="og:locale" content="${locale}"`), path);
+  }
+  assert.equal(titles.size, built().length, 'titles are unique');
+  assert.ok(existsSync('public/og.png'), 'og.png');
+});
+
+test('the sitemap lists every page', () => {
+  const xml = readFileSync('dist/sitemap-0.xml', 'utf8');
+  for (const path of PAGES) assert.ok(xml.includes(`<loc>${SITE}${path}</loc>`), path);
+  assert.doesNotMatch(xml, /404/);
+});
+
 test('altPath swaps languages and keeps the page', () => {
   assert.equal(altPath('/'), '/fr');
   assert.equal(altPath('/fr'), '/');

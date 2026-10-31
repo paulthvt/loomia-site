@@ -19,6 +19,9 @@ const html = (path) => readFileSync(file(path), 'utf8');
 const visible = (page) =>
   page.replace(/<style[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ');
 
+/** Pages that exist; the first test reports the missing ones. */
+const built = () => PAGES.filter(file);
+
 const lang = (path) => (path === '/fr' || path.startsWith('/fr/') ? 'fr' : 'en');
 
 test('every page is built', () => {
@@ -26,11 +29,11 @@ test('every page is built', () => {
 });
 
 test('no page ships a script', () => {
-  for (const path of PAGES) assert.doesNotMatch(html(path), /<script\b/i, path);
+  for (const path of built()) assert.doesNotMatch(html(path), /<script\b/i, path);
 });
 
 test('every page has lang, canonical and hreflang', () => {
-  for (const path of PAGES) {
+  for (const path of built()) {
     const page = html(path);
     const other = altPath(path);
     const [en, fr] = lang(path) === 'en' ? [path, other] : [other, path];
@@ -43,7 +46,7 @@ test('every page has lang, canonical and hreflang', () => {
 });
 
 test('the language link points at the same page', () => {
-  for (const path of PAGES) {
+  for (const path of built()) {
     const link = html(path).match(/<a [^>]*data-lang-switch[^>]*>/)?.[0] ?? '';
     assert.ok(link.includes(`href="${altPath(path)}"`), `${path}: ${link}`);
   }
@@ -51,11 +54,11 @@ test('the language link points at the same page', () => {
 
 test('nothing reads as MLM', () => {
   const words = /recruit|recrut|downline|\bPV\b|\bOV\b|elite|essential oil|huiles? essentielle/i;
-  for (const path of PAGES) assert.doesNotMatch(visible(html(path)), words, path);
+  for (const path of built()) assert.doesNotMatch(visible(html(path)), words, path);
 });
 
 test('French uses tu', () => {
-  for (const path of PAGES.filter((p) => lang(p) === 'fr')) {
+  for (const path of built().filter((p) => lang(p) === 'fr')) {
     assert.doesNotMatch(visible(html(path)), /\b(vous|votre|vos)\b/i, path);
   }
 });

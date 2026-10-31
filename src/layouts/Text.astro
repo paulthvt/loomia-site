@@ -1,0 +1,57 @@
+---
+// Privacy, Support, Legal notice: a reading column for a Markdown page.
+// Frontmatter: title, description, path, updated (ISO date, optional).
+import Base from './Base.astro';
+import { langOf, t } from '../i18n';
+
+const { title, description, path, updated } = Astro.props.frontmatter;
+const lang = langOf(path);
+const date = updated
+  ? new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', { dateStyle: 'long' }).format(
+      new Date(updated),
+    )
+  : null;
+---
+
+<Base title={`${title} · Loomia`} description={description} path={path}>
+  <article class="text-page">
+    <h1>{title}</h1>
+    {date && <p class="text-page-updated">{t(lang).updated} {date}</p>}
+    <slot />
+  </article>
+</Base>
+
+<style>
+  .text-page {
+    max-width: var(--reading);
+    margin: 0 auto;
+    padding: 64px var(--gutter) var(--section-gap);
+  }
+  .text-page :global(h1) {
+    font-size: clamp(32px, 4vw, 44px);
+    margin: 0 0 8px;
+  }
+  .text-page-updated {
+    margin: 0 0 40px;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .text-page :global(h2) {
+    font-size: 22px;
+    margin: 48px 0 12px;
+  }
+  .text-page :global(h3) {
+    font-size: 18px;
+    margin: 28px 0 8px;
+  }
+  .text-page :global(p),
+  .text-page :global(ul) {
+    margin: 0 0 16px;
+  }
+  .text-page :global(li) {
+    margin-bottom: 6px;
+  }
+  .text-page :global(strong) {
+    color: var(--text-primary);
+  }
+</style>

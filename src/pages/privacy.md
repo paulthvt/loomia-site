@@ -79,6 +79,8 @@ most.
 
 In the app, go to **Settings → Account → Delete account**. Your account and
 everything in it, photos included, is deleted at once. It can't be undone.
+Without the app, write to [hello@getloomia.app](mailto:hello@getloomia.app)
+from your account's email address: it's deleted within 30 days.
 
 ## Your rights
 

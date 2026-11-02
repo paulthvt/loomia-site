@@ -14,6 +14,12 @@ Dans l'app, va dans **Réglages → Compte → Supprimer le compte**. Ton compte
 et tout ce qu'il contient, photos comprises, sont supprimés aussitôt. C'est
 définitif.
 
+Tu n'as plus l'app ? Écris à
+[hello@getloomia.app](mailto:hello@getloomia.app) depuis l'adresse e-mail de
+ton compte, et on supprime ton compte et tout ce qu'il contient sous 30
+jours. Si tu t'es connecté·e avec Apple en masquant ton e-mail, précise-le et
+on retrouvera ton compte ensemble.
+
 ## J'ai oublié mon mot de passe
 
 Sur l'écran de connexion, touche **Mot de passe oublié?** et saisis ton

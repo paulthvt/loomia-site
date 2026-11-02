@@ -13,6 +13,12 @@ every message, and replies usually within two days.
 In the app, go to **Settings → Account → Delete account**. Your account and
 everything in it, photos included, is deleted at once. It can't be undone.
 
+Don't have the app any more? Write to
+[hello@getloomia.app](mailto:hello@getloomia.app) from your account's email
+address, and we'll delete your account and everything in it within 30 days.
+If you signed in with Apple and hid your email, say so and we'll find your
+account with you.
+
 ## I forgot my password
 
 On the sign-in screen, tap **Forgot password?** and enter your email. You'll

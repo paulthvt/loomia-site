@@ -89,7 +89,9 @@ tard au bout de 90 jours.
 
 Dans l'app, va dans **Réglages → Compte → Supprimer le compte**. Ton compte
 et tout ce qu'il contient, photos comprises, sont supprimés aussitôt. C'est
-définitif.
+définitif. Sans l'app, écris à
+[hello@getloomia.app](mailto:hello@getloomia.app) depuis l'adresse e-mail de
+ton compte : il est supprimé sous 30 jours.
 
 ## Tes droits
 

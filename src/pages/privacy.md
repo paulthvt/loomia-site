@@ -3,7 +3,7 @@ layout: ../layouts/Text.astro
 title: Privacy policy
 description: What Loomia stores, where, who helps run it, and how to delete everything.
 path: /privacy
-updated: 2026-10-30
+updated: 2026-11-04
 ---
 
 Loomia helps you keep track of the people you work with. To do that it has
@@ -44,6 +44,9 @@ Everything above is stored by Supabase, in the European Union (Ireland).
 - **Sentry:** error reports, stored in the European Union (Germany). A report
   holds technical details and your account's id, never your email or your
   contacts.
+- **Brevo:** sends the account emails (confirming your email, resetting your
+  password), from France, within the European Union. It receives your email
+  address and first name, nothing else.
 - **Google Firebase Cloud Messaging:** delivers notifications to your phone.
 - **Cloudflare:** hosts this site and the web app, and keeps standard request
   logs.

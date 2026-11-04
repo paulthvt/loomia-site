@@ -3,7 +3,7 @@ layout: ../../layouts/Text.astro
 title: Politique de confidentialité
 description: Ce que Loomia enregistre, où, qui aide à le faire tourner, et comment tout supprimer.
 path: /fr/privacy
-updated: 2026-10-30
+updated: 2026-11-04
 ---
 
 Loomia t'aide à suivre les personnes avec qui tu travailles. Pour ça, l'app
@@ -48,6 +48,9 @@ Tout ce qui précède est stocké par Supabase, dans l'Union européenne
 - **Sentry :** rapports d'erreur, stockés dans l'Union européenne
   (Allemagne). Un rapport contient des détails techniques et l'identifiant
   de ton compte, jamais ton e-mail ni tes contacts.
+- **Brevo :** envoie les e-mails du compte (confirmer ton e-mail,
+  réinitialiser ton mot de passe), depuis la France, dans l'Union
+  européenne. Il reçoit ton adresse e-mail et ton prénom, rien d'autre.
 - **Google Firebase Cloud Messaging :** envoie les notifications sur ton
   téléphone.
 - **Cloudflare :** héberge ce site et l'app web, et garde les journaux de

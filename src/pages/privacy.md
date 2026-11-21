@@ -44,6 +44,9 @@ Everything above is stored by Supabase, in the European Union (Ireland).
 - **Sentry:** error reports, stored in the European Union (Germany). A report
   holds technical details and your account's id, never your email or your
   contacts.
+- **Brevo:** sends the account emails (confirming your email, resetting your
+  password), from France, within the European Union. It receives your email
+  address and first name, nothing else.
 - **Google Firebase Cloud Messaging:** delivers notifications to your phone.
 - **Cloudflare:** hosts this site and the web app, and keeps standard request
   logs. When you sign up, sign in with your email or reset your password, its

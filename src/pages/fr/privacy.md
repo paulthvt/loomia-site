@@ -48,6 +48,9 @@ Tout ce qui précède est stocké par Supabase, dans l'Union européenne
 - **Sentry :** rapports d'erreur, stockés dans l'Union européenne
   (Allemagne). Un rapport contient des détails techniques et l'identifiant
   de ton compte, jamais ton e-mail ni tes contacts.
+- **Brevo :** envoie les e-mails du compte (confirmer ton e-mail,
+  réinitialiser ton mot de passe), depuis la France, dans l'Union
+  européenne. Il reçoit ton adresse e-mail et ton prénom, rien d'autre.
 - **Google Firebase Cloud Messaging :** envoie les notifications sur ton
   téléphone.
 - **Cloudflare :** héberge ce site et l'app web, et garde les journaux de

@@ -50,7 +50,11 @@ Tout ce qui précède est stocké par Supabase, dans l'Union européenne
   de ton compte, jamais ton e-mail ni tes contacts.
 - **Brevo :** envoie les e-mails du compte (confirmer ton e-mail,
   réinitialiser ton mot de passe), depuis la France, dans l'Union
-  européenne. Il reçoit ton adresse e-mail et ton prénom, rien d'autre.
+  européenne. Il reçoit ton adresse e-mail et ton prénom. Brevo compte
+  toujours, de façon anonyme, combien de ces e-mails sont ouverts et combien
+  de leurs liens sont cliqués : ses liens passent d'abord par Brevo, et
+  l'e-mail contient une image invisible. Ces chiffres ne sont jamais reliés à
+  toi, et Loomia ne s'en sert pas.
 - **Google Firebase Cloud Messaging :** envoie les notifications sur ton
   téléphone.
 - **Cloudflare :** héberge ce site et l'app web, et garde les journaux de
@@ -77,8 +81,9 @@ et sur les clauses contractuelles types de la Commission européenne sinon.
 ## Ce que Loomia ne fait jamais
 
 Pas de publicité, pas de vente ni de partage de tes données, pas de mesure
-d'audience, pas de cookies de suivi. À part ta session de connexion, rien
-n'est gardé sur ton appareil.
+d'audience, pas de cookies de suivi. La seule exception est le comptage
+anonyme des e-mails du compte ouverts par Brevo, plus haut. À part ta session
+de connexion, rien n'est gardé sur ton appareil.
 
 ## Pourquoi Loomia utilise tes données
 

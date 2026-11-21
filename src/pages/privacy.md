@@ -46,7 +46,10 @@ Everything above is stored by Supabase, in the European Union (Ireland).
   contacts.
 - **Brevo:** sends the account emails (confirming your email, resetting your
   password), from France, within the European Union. It receives your email
-  address and first name, nothing else.
+  address and first name. Brevo always counts, anonymously, how many of these
+  emails are opened and how many of their links are clicked: its links pass
+  through Brevo first, and the email holds an invisible image. These counts
+  are never linked to you, and Loomia doesn't use them.
 - **Google Firebase Cloud Messaging:** delivers notifications to your phone.
 - **Cloudflare:** hosts this site and the web app, and keeps standard request
   logs. When you sign up, sign in with your email or reset your password, its
@@ -67,6 +70,7 @@ on the European Commission's standard contractual clauses otherwise.
 ## What Loomia never does
 
 No ads, no selling or sharing your data, no analytics, no tracking cookies.
+The one exception is Brevo's anonymous count of opened account emails, above.
 Apart from your sign-in session, nothing is kept on your device.
 
 ## Why Loomia may use your data

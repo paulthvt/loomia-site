@@ -3,7 +3,7 @@ layout: ../layouts/Text.astro
 title: Privacy policy
 description: What Loomia stores, where, who helps run it, and how to delete everything.
 path: /privacy
-updated: 2026-10-30
+updated: 2026-11-21
 ---
 
 Loomia helps you keep track of the people you work with. To do that it has
@@ -46,7 +46,9 @@ Everything above is stored by Supabase, in the European Union (Ireland).
   contacts.
 - **Google Firebase Cloud Messaging:** delivers notifications to your phone.
 - **Cloudflare:** hosts this site and the web app, and keeps standard request
-  logs.
+  logs. When you sign up, sign in with your email or reset your password, its
+  invisible Turnstile check makes sure a person is asking, not a bot; see
+  Cloudflare's [Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/).
 - **Google and Apple**, if you sign in with them. With Sign in with Apple you
   can hide your email: Loomia then only sees Apple's relay address.
 

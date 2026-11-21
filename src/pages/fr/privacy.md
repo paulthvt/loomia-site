@@ -3,7 +3,7 @@ layout: ../../layouts/Text.astro
 title: Politique de confidentialité
 description: Ce que Loomia enregistre, où, qui aide à le faire tourner, et comment tout supprimer.
 path: /fr/privacy
-updated: 2026-11-04
+updated: 2026-11-21
 ---
 
 Loomia t'aide à suivre les personnes avec qui tu travailles. Pour ça, l'app
@@ -54,7 +54,11 @@ Tout ce qui précède est stocké par Supabase, dans l'Union européenne
 - **Google Firebase Cloud Messaging :** envoie les notifications sur ton
   téléphone.
 - **Cloudflare :** héberge ce site et l'app web, et garde les journaux de
-  requêtes habituels.
+  requêtes habituels. Quand tu crées un compte, te connectes avec ton e-mail
+  ou réinitialises ton mot de passe, sa vérification invisible Turnstile
+  s'assure que c'est bien une personne et pas un robot ; voir l'[avenant de
+  confidentialité Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/)
+  de Cloudflare.
 - **Google et Apple**, si tu te connectes avec eux. Avec « Se connecter avec
   Apple », tu peux masquer ton e-mail : Loomia ne voit alors que l'adresse
   relais d'Apple.
